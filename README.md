@@ -2,13 +2,10 @@
 Build with hugo!
 theme: Bear Club
 
-[author]
-    name: Caio Lente
-    homepage: https://github.com/clente/hugo-bearcub
+[author]    
+    name: [Caio Lente](https://github.com/clente/hugo-bearcub)
 
-[original]
-    author: Jan Raasch
-    homepage: https://www.janraasch.com
+[original]    
+    author: [Jan Raasch](https://github.com/janraasch/hugo-bearblog)
 
-repo: https://github.com/janraasch/hugo-bearblog
-licenselink: https://github.com/clente/hugo-bearcub/blob/master/LICENSE
+[licenselink](https://github.com/clente/hugo-bearcub/blob/master/LICENSE)
