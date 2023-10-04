@@ -1,7 +1,6 @@
-**coleaderme.github.io**
+# [coleaderme.github.io](coleaderme.github.io)
 
 Build with hugo!
-
 theme: Bear Club
 
 [author]    
