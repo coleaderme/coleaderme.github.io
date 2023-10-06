@@ -4,4 +4,6 @@ menu: "main"
 weight: 1
 ---
 
-## Online now
+## Welcome!
+
+(site is still under development)
