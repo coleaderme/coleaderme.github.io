@@ -3,7 +3,7 @@ title: "Home"
 menu: "main"
 weight: 1
 ---
+## yo
+### [Github](https://github.com/coleaderme)
 
-## Welcome!
-
-(site is still under development)
+*(site is still under development)*
