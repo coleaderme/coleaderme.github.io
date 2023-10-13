@@ -28,6 +28,6 @@ Note: Depending on device, sometimes TouchPadPS2 can be TouchPadPS2_1, TouchPadP
 replace with your specific.  
 
 
-### Additionally: 
-Download skipMetroSuite from [winaero](https://winaero.com/download-skip-metro-suite/)
-mirror gdrive: [skipMetroSuite](https://drive.google.com/file/d/1N2Ne33yU1bQUqZZdt08ULpObLXd8kQR6/view?usp=sharing)
+### Additionally:   
+Download skipMetroSuite from [winaero](https://winaero.com/download-skip-metro-suite/)  
+mirror gdrive: [skipMetroSuite](https://drive.google.com/file/d/1N2Ne33yU1bQUqZZdt08ULpObLXd8kQR6/view?usp=sharing)  
