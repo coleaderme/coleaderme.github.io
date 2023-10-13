@@ -9,7 +9,6 @@ tags = [
 ]
 +++
 
-# Disable touchpad corner gestures Win 8.1  
 Save this as **gestures.reg** make sure it is NOT **.txt**  
 ```
 Windows Registry Editor Version 5.00
