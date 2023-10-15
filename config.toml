@@ -40,7 +40,7 @@ enableRobotsTXT = true
   description = "coleaderme blog"
 
   # The path to your favicon
-  favicon = "images/favicon.png"
+  # favicon = "images/favicon.png"
 
   # This title is used as the site_name on the Hugo's internal opengraph
   # structured data template
