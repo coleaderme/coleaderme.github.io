@@ -25,8 +25,8 @@ Note: Alsa is all you need for basic media consuming, pulseaudio is required for
 
 ## Basic audio control:
 toggle  mute: `$ amixer -q -D pulse sset Master toggle`  
-decrease vol: `$ amixer -q -D pulse sset Master 1+`  
-increase vol: `$ amixer -q -D pulse sset Master 1-`  
+decrease vol: `$ amixer -q -D pulse sset Master 1%+`  
+increase vol: `$ amixer -q -D pulse sset Master 1%-`  
 
 ## Equalizer:  
 **open** `pulseaudio-equalizer-gtk` which is installed by *pulseaudio-equalizer-ladspa*.  
