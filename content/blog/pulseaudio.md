@@ -24,9 +24,9 @@ Note: Alsa is all you need for basic media consuming, pulseaudio is required for
 `$ sudo pacman -S pulseaudio pavucontrol pulseaudio-alsa pulseaudio-equalizer-ladspa pulseaudio-zeroconf pulsemixer`  
 
 ## Basic audio control:
-toggle  mute: `$ pactl set-sink-mute 0 toggle`  
-decrease vol: `$ pactl set-sink-volume 0 -2%`  
-increase vol: `$ pactl set-sink-volume 0 +2%`  
+toggle  mute: `$ amixer -q -D pulse sset Master toggle`  
+decrease vol: `$ amixer -q -D pulse sset Master 1+`  
+increase vol: `$ amixer -q -D pulse sset Master 1-`  
 
 ## Equalizer:  
 **open** `pulseaudio-equalizer-gtk` which is installed by *pulseaudio-equalizer-ladspa*.  
