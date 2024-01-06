@@ -13,13 +13,13 @@ Save this as **gestures.reg** make sure it is NOT **.txt**
 ```
 Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Right Edge Pull]
-“ActionType”=dword:00000000
+"ActionType"=dword:00000000
 [HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Left Edge Pull]
-“ActionType”=dword:00000000
+"ActionType"=dword:00000000
 [HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Right Edge Pull Extended Zone]
-“ActionType”=dword:00000000
+"ActionType"=dword:00000000
 [HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Top Edge Pull]
-“ActionType”=dword:00000000
+"ActionType"=dword:00000000
 ```
 
 Double click **gestures.reg** to apply.  
