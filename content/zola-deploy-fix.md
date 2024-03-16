@@ -1,5 +1,5 @@
 +++
-title = "zola-deploy"
+title = "Zola deploy"
 date = "2024-03-16"
 description = "zola github pages build and deploy"
 +++
