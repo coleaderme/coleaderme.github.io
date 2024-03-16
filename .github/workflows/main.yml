@@ -14,5 +14,5 @@ jobs:
         uses: shalzz/zola-deploy-action@v0.17.2
         env:
           PAGES_BRANCH: main
-          BUILD_DIR: public/
+          BUILD_DIR: docs/
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
