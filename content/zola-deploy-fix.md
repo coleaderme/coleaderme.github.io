@@ -2,6 +2,8 @@
 title = "Zola deploy"
 date = "2024-03-16"
 description = "zola github pages build and deploy"
+[extra]
+cover_image = "images/gh-pages.png"
 +++
 
 # After so many trial and errors..  
@@ -34,6 +36,6 @@ jobs:
 
 *Important*  **Settings** >> **pages** >>  
 
-![Settings Page](static/images/gh-pages.png)  
+![Settings Page](images/gh-pages.png)  
 
 Done!
