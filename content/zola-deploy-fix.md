@@ -36,6 +36,6 @@ jobs:
 
 *Important*  **Settings** >> **pages** >>  
 
-![Settings Page](images/gh-pages.png)  
+![Settings Page](https://coleaderme.github.io/images/gh-pages.png)  
 
 Done!
