@@ -4,13 +4,12 @@ date = "2024-03-16"
 description = "zola github pages build and deploy"
 [extra]
 cover_image = "images/gh-pages.png"
-+++
+ +++
 
 # After so many trial and errors..  
 
 Make changes to your-name.github.io repo's  
-
-**Actions** >> **New Workflow** >>  
+1.  **Actions** >> **New Workflow** >>  
 
 PASTE this.  
 ```yaml
@@ -34,8 +33,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-*Important*  **Settings** >> **pages** >>  
+2. *Important*  **Settings** >> **pages** >>  
 
-![Settings Page](https://coleaderme.github.io/images/gh-pages.png)  
-
-Done!
+*See cover image*  
