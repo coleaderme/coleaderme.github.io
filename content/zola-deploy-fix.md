@@ -3,7 +3,7 @@ title = "Zola deploy"
 date = "2024-03-16"
 description = "zola github pages build and deploy"
 [extra]
-cover_image = "images/gh-pages.png"
+cover_image = "images/gh-pages.webp"
  +++
 
 # After so many trial and errors..  
@@ -34,5 +34,6 @@ jobs:
 ```
 
 2. *Important*  **Settings** >> **pages** >>  
-
-*See cover image*  
+{%admonition(type="info")%}
+See cover image
+{%end%}
