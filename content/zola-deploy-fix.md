@@ -33,7 +33,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-2. *Important*  **Settings** >> **pages** >>  
+2. **Settings** >> **pages** >>  
 {%admonition(type="info")%}
 See cover image
 {%end%}
