@@ -21,7 +21,7 @@ cd igpp
 - `pip install httpx`  
 - **secrets_session.py** *(see below)*  
 
-[headers](https://github.com/coleaderme/coleaderme.github.io/blob/main/static/images/igpp_headers.webp)  
+[headers](https://raw.githubusercontent.com/coleaderme/coleaderme.github.io/main/static/images/igpp_headers.webp)  
 
 *a bit more complicated..*  
 0. Login to instagram.com web  
