@@ -8,19 +8,24 @@ description = "Download Instagram dp full HD size"
 Download HQ 1080px insta profile picture [github](https://github.com/coleaderme/igpp)  
 
 ## Usage:  
-`python igpp.py  apple trevorwallace ...`  
+
+```bash
+python igpp.py  apple trevorwallace ...
+```  
 
 ## Setup  
-Download and unzip https://github.com/coleaderme/igpp/archive/refs/heads/main.zip  
-OR   
+[Download](https://github.com/coleaderme/igpp/archive/refs/heads/main.zip) and unzip  
+OR  
 ```bash
 git clone https://github.com/coleaderme/igpp.git
 cd igpp
 ```
-## Requirements 
-- `pip install httpx`  
-- **secrets_session.py** *(see below)*  
 
+## Requirements 
+```bash
+pip install httpx
+```
+**secrets_session.py** *(see below)*  
 ![headers](https://raw.githubusercontent.com/coleaderme/coleaderme.github.io/main/static/images/igpp_headers.webp)  
 
 *a bit more complicated..*  
@@ -39,8 +44,5 @@ Note: this `secrets_session.py` seems to be stop working after sometime (days/ho
   try not to get busted by bot detector, use alt account.  
   you may have to redo this everytime your session expires / logs out.  
 
-
-
 ## Contribute:  
   Any help is appreciated!
-
