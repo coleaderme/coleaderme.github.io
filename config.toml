@@ -49,7 +49,7 @@ math = false
 # Enable mermaid support globally.
 mermaid = false
 # Enable comment support globally.
-comment = false
+comment = true
 
 [extra.style]
 # The custom background color.
@@ -59,7 +59,7 @@ comment = false
 # bg_dark_color = ""
 
 # Enable header blur.
-header_blur = true
+header_blur = false
 
 # The custom header color, only available when `header_blur` is false.
 # header_color = ""
