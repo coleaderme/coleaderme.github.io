@@ -23,7 +23,7 @@ Not intuitive shortcuts/hotkeys as traditional editors.
 ### Extra  
 for simple text edits use: [Micro](https://micro-editor.github.io/) enhanced nano.  
 it has your traditional editor shortcuts;  
-with:  
+such as..  
 - alt+shift+arrowUP/DN: mutltiline editing  
 - ctrl+c / ctrl+v : copy / paste  
 - ctrl+d : duplicate line  
