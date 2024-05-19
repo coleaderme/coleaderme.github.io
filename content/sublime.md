@@ -14,7 +14,7 @@ Press Ctrl+Shift+P `install package`
 note: use `node` bin provided by sublime.  
 location: "~/.cache/sublime-text/Package Storage/lsp_utils/node-runtime/18.18.1/node/bin/node"  
 
-####  Why would you an editor that contantly bothers you to purchase it?  
+####  Why use sublime text?  
 Fast, low memory usage and easy to use.  
 
 #### Neovim uses low memory and fast AF.  
