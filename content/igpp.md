@@ -5,7 +5,7 @@ description = "Download Instagram Profile Picture Full HD Size"
 +++
 
 # igpp: Instagram Profile Picture DL  
-Download HQ 1080px insta profile picture [github](https://github.com/coleaderme/igpp)  
+Download HQ 1080px insta profile picture    
 ![headers](https://raw.githubusercontent.com/coleaderme/coleaderme.github.io/main/static/images/igpp_web.png)  
 
 
