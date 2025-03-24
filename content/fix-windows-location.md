@@ -7,10 +7,11 @@ description = "Windows 10 location greyed out / disabled in settings"
 
 1. Ensured that the `Geolocation` service is running and set to Automatic  
 
-2. Replace `0` with `1` in the registry **(IMPORTANT)** :  
-`Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors`  
-Restart PC  
-If this does not fix then most likely you need to Clean Install Windows.  
+2. Registry edit **(IMPORTANT)** :  
+- `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors`  
+- Replace value of all keys from `1` to `0`  
+- Restart PC.  
+* If this does not fix then most likely you need to Clean Install Windows.  
 
 3. Ensured that this registry key is set to "Allow":  
 `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location`  
