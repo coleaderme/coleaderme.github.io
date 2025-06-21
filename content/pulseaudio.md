@@ -2,7 +2,7 @@
 title = 'Audio Redirection speaker output to mic input | Pulseaudio'
 date = 2023-10-13T14:26:26+05:30
 description = "Audio Redirection speaker output to mic input using Pulseaudio in linux"
-tags = ['Audio', 'Redirection', 'output', 'mic', 'Equalizer', 'speaker', 'Pulseaudio', 'input', 'Easy', 'Master']
+tags = ["Audio", "Redirection", "output", "mic", "Equalizer", "speaker", "Pulseaudio", "input", "Easy", "Master"]
 +++
 
 # Pulseaudio setup    

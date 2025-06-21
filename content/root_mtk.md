@@ -2,12 +2,7 @@
 title = 'Root Mediatek devices'
 date = 2024-01-16T16:49:51+05:30
 description = "mtk tool for rooting, reading/writing flash and doing crazy stuff."
-tags = [
-    "boot",
-    "root",
-    "vbmeta",
-    "mtkclient"
-]
+tags = ["boot", "root", "vbmeta", "mtkclient"]
 +++
 
 # [MTKClient](https://github.com/bkerler/mtkclient)  

@@ -2,7 +2,7 @@
 title = "Github SSH Key"
 date = "2024-06-11"
 description = "Setup Github SSH key"
-tags = ['Key', 'SSH', 'Github', 'Setup', 'Generate']
+tags = ["Key", "SSH", "Github", "Setup", "Generate"]
 +++
 
 ## Generate key

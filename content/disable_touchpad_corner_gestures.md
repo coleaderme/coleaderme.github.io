@@ -2,11 +2,7 @@
 title = 'Disable touchpad gestures'
 date = 2023-10-13T15:22:57+05:30
 description = "Disable touchpad corner gestures Win 8.1"
-tags = [
-    "windows",
-    "touchpad",
-    "gesture",
-]
+tags = ["windows", "touchpad", "gesture"]
 +++
 
 Save this as **gestures.reg** make sure it is NOT **.txt**  

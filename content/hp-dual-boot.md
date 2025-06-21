@@ -2,7 +2,7 @@
 title = "HP Dual Boot workaround"
 date = "2025-06-21"
 description = "Stupid HP Dual boot workaround"
-tags = ['Boot', 'Dual', 'Grub', 'Windows', 'Fixes', 'efi', 'Stupid', 'workaround', 'Microsoft']
+tags = ["Boot", "Dual", "Grub", "Windows", "Fixes", "efi", "Stupid", "workaround", "Microsoft"]
 +++
 
 # Fixes: HP ignoring linux boot manager (Grub)

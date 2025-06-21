@@ -3,10 +3,7 @@ author = "coleaderme"
 title = "YouTube Playlist Downloader Fast and Easy!"
 date = "2023-10-02"
 description = "Easy YouTube Playlist Downloader"
-tags = [
-    "youtube",
-    "download",
-]
+tags = ["youtube", "download"]
 +++
 
 `Colab`: <https://colab.research.google.com/github/coleaderme/multi-yt/blob/main/multiYT_download.ipynb>
