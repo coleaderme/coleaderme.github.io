@@ -2,6 +2,7 @@
 title = "Instagram Profile Full Size!"
 date = "2024-05-03"
 description = "Download Instagram Profile Picture Full HD Size"
+tags = ['Instagram', 'Picture', 'Size', 'Full', 'Download', 'Setup', 'Profile', 'CLI']
 +++
 
 # igpp: Instagram Profile Picture DL  

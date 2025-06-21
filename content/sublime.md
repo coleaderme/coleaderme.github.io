@@ -2,7 +2,8 @@
 title = "Sublime Text"
 date = "2024-05-19"
 description = "Sublime Text Python LSP Autocomplete Intellisense"
- +++
+tags = ['Sublime', 'Text', 'Ctrl', 'Autocomplete', 'install', 'Intellisense', 'Python', 'LSP']
++++
 
 # Sublime text 4  
 Get autocomplete, code suggestions like vscode in Sublime Text.  

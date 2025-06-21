@@ -4,7 +4,7 @@ date = "2024-03-16"
 description = "zola github pages build and deploy"
 [extra]
 cover_image = "images/gh-pages.webp"
- +++
++++
 
 # After so many trial and errors..  
 
