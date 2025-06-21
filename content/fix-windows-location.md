@@ -2,7 +2,7 @@
 title = "Fix Greyed out Windows Location"
 date = "2025-03-24"
 description = "Windows 10 location greyed out / disabled in settings"
- +++
++++
 
 
 1. Ensured that the `Geolocation` service is running and set to Automatic  
