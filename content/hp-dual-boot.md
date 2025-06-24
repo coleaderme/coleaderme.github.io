@@ -3,7 +3,7 @@ title = "HP Dual Boot workaround"
 date = "2025-06-21"
 description = "Stupid HP Dual boot workaround"
 [taxonomies]
-tags = ["Boot", "Dual", "Grub", "Windows", "Fixes", "efi", "Stupid", "workaround", "Microsoft"]
+tags = ["Boot", "Dual", "Grub", "Windows", "Fixes", "efi", "workaround", "Microsoft"]
 +++
 
 # Fixes: HP ignoring linux boot manager (Grub)
@@ -16,17 +16,18 @@ Microsoft/  # Windows
 Boot/       # default fallback (no OS)
 ```
 
-2. rename/backup Windows boot manager, and replace it with Grub.
+2. Replace Windows boot efi with Grub efi.
 ```sh
-mv Microsoft Microsoft.bak
-mkdir Microsoft
-cp Grub/* Microsoft/
+sudo mv Microsoft Microsoft.bak
+sudo mkdir -p Microsoft/Boot
+sudo cp Grub/grubx64.efi Microsoft/Boot/bootmgfw.efi
 ```
 
 3. custom boot entry for Windows to chainload from Grub.
 
-Find UUID of **/boot/efi**: `sudo blkid`
-eg. D064-C2CB
+Find UUID of **/boot/efi**:   `sudo blkid`
+
+(for example:- D064-C2CB)
 
 edit `sudo nano /etc/grub.d/40_custom`:
 ```sh
@@ -51,4 +52,4 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 Now you'll be able to boot directly into grub,
-there you can decide to boot into Windows/Linux.
+from there you can decide to boot into Linux/Windows.
