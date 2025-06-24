@@ -3,6 +3,7 @@ author = "coleaderme"
 title = "YouTube Playlist Downloader Fast and Easy!"
 date = "2023-10-02"
 description = "Easy YouTube Playlist Downloader"
+[taxonomies]
 tags = ["youtube", "download"]
 +++
 

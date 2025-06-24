@@ -2,6 +2,7 @@
 title = 'Disable touchpad gestures'
 date = 2023-10-13T15:22:57+05:30
 description = "Disable touchpad corner gestures Win 8.1"
+[taxonomies]
 tags = ["windows", "touchpad", "gesture"]
 +++
 

@@ -2,6 +2,7 @@
 title = "Github SSH Key"
 date = "2024-06-11"
 description = "Setup Github SSH key"
+[taxonomies]
 tags = ["Key", "SSH", "Github", "Setup", "Generate"]
 +++
 

@@ -2,6 +2,7 @@
 title = "HP Dual Boot workaround"
 date = "2025-06-21"
 description = "Stupid HP Dual boot workaround"
+[taxonomies]
 tags = ["Boot", "Dual", "Grub", "Windows", "Fixes", "efi", "Stupid", "workaround", "Microsoft"]
 +++
 

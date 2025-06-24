@@ -3,6 +3,7 @@ author = "Hugo Authors"
 title = "Emoji Support"
 date = "2019-03-05"
 description = "Guide to emoji usage in Hugo"
+[taxonomies]
 tags = ["Emoji", "span", "class", "Hugo", "emojify", "Segoe", "Support", "Guide", "code", "author"]
 +++
 
