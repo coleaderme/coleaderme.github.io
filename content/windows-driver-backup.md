@@ -7,18 +7,18 @@ tags = ["Windows", "Drivers", "Backup", "Restore", "PowerShell", "Double Driver"
 +++
 
 **Simple app**  
-Download: Double Driver from (here)[https://www.majorgeeks.com/files/details/double_driver.html]  
+Download: Double Driver from [here](https://www.majorgeeks.com/files/details/double_driver.html)  
 
 
 example location `d:\drivers`  
-# Backup
 run `powershell`:  
+
+# Backup
 ```shell
 Export-WindowsDriver -Online -Destination d:\drivers
 ```
 
 # Restore
-run `powershell`:  
 ```shell
 pnputil /add-driver "d:\drivers\*.inf" /subdirs /install /reboot
 ```
