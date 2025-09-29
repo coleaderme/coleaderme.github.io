@@ -1,0 +1,492 @@
+<!doctype html>
+<html class="not-ready lg:text-base" lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>
+    Root Mediatek devices - Home
+  </title>
+
+  <!-- Meta -->
+  <meta name="theme-color" />
+
+  <!-- Author -->
+  
+  <meta name="description" content="Root Mediatek devices" />
+  <meta name="author" content="Root Mediatek devices" />
+  
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="https://coleaderme.github.io/main.css" />
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --bg-dark: #18181b;
+      --header: #e4e4e7;
+      --header-dark: #27272a;
+    }
+  </style>
+
+  
+
+  <!-- Dark Icon -->
+  <link rel="preload" as="image" href="https://coleaderme.github.io/icons/theme.svg" />
+
+  <!-- Math -->
+  
+  <!---->
+
+  <!-- Mermaid -->
+  
+  <!---->
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://coleaderme.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coleaderme.github.io/apple-touch-icon.png" />
+
+  <!-- Feeds -->
+  
+  <!---->
+  
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Atom"
+    href="https://coleaderme.github.io/atom.xml"
+  />
+  
+  <!---->
+  
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;root-mtk&#x2F;" />
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header
+  class="header fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
+>
+  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <a class="text-2xl font-semibold" href="https://coleaderme.github.io">Home</a>
+        <div
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+          role="button"
+          aria-label="Dark"
+        ></div>
+      </div>
+      
+      <div
+        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+        role="button"
+        aria-label="Menu"
+      ></div>
+      
+    </div>
+    <script>
+      // base
+      const htmlClass = document.documentElement.classList;
+      setTimeout(() => {
+        htmlClass.remove("not-ready");
+      }, 10);
+
+      // mobile menu
+      const btnMenu = document.querySelector(".btn-menu");
+      btnMenu?.addEventListener("click", () => {
+        htmlClass.toggle("open");
+      });
+
+      // dark theme
+      const setDark = (isDark) => {
+        htmlClass[isDark ? "add" : "remove"]("dark");
+        localStorage.setItem("dark", isDark);
+      };
+
+      // init
+      const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (htmlClass.contains("dark")) {
+        setDark(true);
+      } else {
+        const darkVal = localStorage.getItem("dark");
+        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+      }
+
+      // listen system
+      darkScheme.addEventListener("change", (event) => {
+        setDark(event.matches);
+      });
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark.addEventListener("click", () => {
+        setDark(localStorage.getItem("dark") !== "true");
+      });
+    </script>
+    
+    <nav class="flex w-full items-center lg:w-auto">
+      <ul
+        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0"
+      >
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://coleaderme.github.io//archive"
+            >Archive</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://coleaderme.github.io//tags"
+            >Tags</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://coleaderme.github.io//about"
+            >About</a
+          >
+        </li>
+        
+      </ul>
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-4 pb-16 pt-32 dark:prose-invert"
+    >
+      
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Root Mediatek devices</h1>
+    <div class="text-sm antialiased opacity-60">
+  
+  <time>2024-01-16</time>
+  <span class="mx-1">&middot;</span>
+  <span>3min</span>
+  <!---->
+  
+  <!---->
+  
+  <span class="mx-1">&middot;</span>
+  <span>coleaderme</span>
+  
+</div>
+
+  </header>
+
+  
+
+  <!-- TOC -->
+  <!---->
+<div class="block-bg mb-12 flex rounded-lg p-2 text-lg">
+  <details>
+    <summary class="cursor-pointer py-1 pl-4">
+      <span>Table of Contents</span>
+    </summary>
+    <div class="px-2">
+      <ul>
+        
+        <li>
+          <a class="no-underline hover:underline" href="https://coleaderme.github.io/root-mtk/#mtkclient"
+            >MTKClient</a
+          >
+          
+          <ul>
+            
+            <li>
+              <a class="no-underline hover:underline" href="https://coleaderme.github.io/root-mtk/#install"
+                >Install</a
+              >
+            </li>
+            
+            <li>
+              <a class="no-underline hover:underline" href="https://coleaderme.github.io/root-mtk/#usage"
+                >Usage</a
+              >
+            </li>
+            
+            <li>
+              <a class="no-underline hover:underline" href="https://coleaderme.github.io/root-mtk/#troubleshooting"
+                >Troubleshooting</a
+              >
+            </li>
+            
+            <li>
+              <a class="no-underline hover:underline" href="https://coleaderme.github.io/root-mtk/#credits"
+                >Credits</a
+              >
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+<!---->
+
+  <!-- Content -->
+  <section><h1 id="mtkclient"><a href="https://github.com/bkerler/mtkclient">MTKClient</a></h1>
+<h2 id="install">Install</h2>
+<h3 id="archlinux">ArchLinux</h3>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo pacman -S python python-pip git libusb usbutils android-tools
+</code></pre>
+<p>or</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">yay -S python python-pip git libusb usbutils android-tools
+</code></pre>
+<h4 id="grab-files">Grab files</h4>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">git clone https:&#x2F;&#x2F;github.com&#x2F;bkerler&#x2F;mtkclient
+cd mtkclient
+pip install -r requirements.txt
+python setup.py build
+python setup.py install
+</code></pre>
+<hr />
+<h3 id="windows">Windows</h3>
+<h4 id="install-python">Install python</h4>
+<ul>
+<li>Install <a href="https://www.python.org/ftp/python/3.9.11/python-3.9.11-amd64.exe">python-3.9</a></li>
+<li>during setup, remember to click &quot;Add to path&quot; [✅] option.</li>
+</ul>
+<h4 id="grab-files-and-install">Grab files and install</h4>
+<ul>
+<li>Download Zip by clicking on <a href="https://github.com/bkerler/mtkclient">Code</a> button. </li>
+<li>Extract zip file, go into the folder.</li>
+<li>Press [Ctrl+l], type cmd [Enter] </li>
+</ul>
+<pre><code>pip install -r requirements.txt
+</code></pre>
+<h4 id="get-latest-usbdk-64-bit">Get latest UsbDk 64-Bit</h4>
+<ul>
+<li>Install normal MTK Serial Port driver (or use default Windows COM Port one, make sure no exclamation is seen)</li>
+<li>Get usbdk installer (.msi) from <a href="https://github.com/daynix/UsbDk/releases/">here</a> and install it</li>
+<li>Test on device connect using &quot;UsbDkController -n&quot; if you see a device with 0x0E8D 0x0003</li>
+<li>Works fine under Windows 10 and 11 :D</li>
+</ul>
+<hr />
+<h2 id="usage">Usage</h2>
+<h3 id="boot-into-brom-mode">Boot into brom mode</h3>
+<p>Once the mtk script is running, boot into brom mode by powering off device,<br />
+press and hold either <em>vol up + power</em> or <em>vol down + power</em> and connect the phone.<br />
+Once detected by the tool, <em>release the buttons</em>.</p>
+<h3 id="using-mtktools-via-the-graphical-user-interface">Using MTKTools via the graphical user interface:</h3>
+<p>For the 'basics' you can use the GUI interface. This supports dumping partitions or the full flash for now. Run the following command:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk_gui
+</code></pre>
+<h3 id="run-multiple-commands">Run multiple commands</h3>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk script run.example
+</code></pre>
+<p>See the file &quot;run.example&quot; on how to structure the script file</p>
+<h3 id="root-the-phone-tested-with-android-9-12">Root the phone (Tested with android 9 - 12)</h3>
+<ol>
+<li>Dump boot and vbmeta</li>
+</ol>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk r boot,vbmeta boot.img,vbmeta.img
+</code></pre>
+<ol start="2">
+<li>Reboot the phone</li>
+</ol>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk reset
+</code></pre>
+<ol start="3">
+<li>
+<p>Download latest <a href="https://github.com/topjohnwu/Magisk/releases">Magisk</a></p>
+</li>
+<li>
+<p>Install on target phone</p>
+</li>
+</ol>
+<ul>
+<li>you need to enable usb-debugging via Settings/About phone/Version, Tap 7x on build number</li>
+<li>Go to Settings/Additional settings/Developer options, enable &quot;OEM unlock&quot; and &quot;USB Debugging&quot;</li>
+<li>Install magisk apk</li>
+</ul>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">adb install Magisk.apk
+</code></pre>
+<ul>
+<li>accept auth rsa request on mobile screen of course to allow adb connection</li>
+</ul>
+<ol start="5">
+<li>Upload boot to /sdcard/Download</li>
+</ol>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">adb push boot.img &#x2F;sdcard&#x2F;Download
+</code></pre>
+<ol start="6">
+<li>Start magisk, tap on Install, select boot.img from /sdcard/Download, then:</li>
+</ol>
+<ul>
+<li>Copy to pc and rename to boot.patched</li>
+</ul>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">adb pull &#x2F;sdcard&#x2F;Download&#x2F;[DISPLAYED MAGISK PATCHED BOOT FILENAME HERE]
+mv [DISPLAYED MAGISK PATCHED BOOT FILENAME HERE] boot.patched
+</code></pre>
+<ol start="7">
+<li>If these two commands below doesnt work </li>
+</ol>
+<ul>
+<li>Putting into FASTBOOT MODE </li>
+</ul>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">adb reboot bootloader ## OR manually via buttons.  
+</code></pre>
+<ul>
+<li>Unlocking bootloader (via fastboot)</li>
+</ul>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">fastboot flashing unlock ## your&#x27;s might be different
+</code></pre>
+<ul>
+<li>Unlocking bootloader (if fastboot is unavailable/command is not known/hard bricked?)</li>
+</ul>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk e metadata,userdata,md_udc
+python mtk da seccfg unlock
+</code></pre>
+<ol start="8">
+<li>Flash Magisk patched <code>boot.patched</code></li>
+</ol>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk w boot,vbmeta boot.patched,vbmeta.img.empty
+</code></pre>
+<ul>
+<li>If ^ command didn't work, rename your device's <code>vbmeta.img</code> to <code>vbmeta.img.empty</code> then execute again..</li>
+</ul>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk w boot,vbmeta boot.patched,vbmeta.img.empty
+</code></pre>
+<ol start="9">
+<li>Reboot the phone</li>
+</ol>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">python mtk reset
+</code></pre>
+<ol start="10">
+<li>Disconnect usb cable and enjoy your rooted phone :) </li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>Struggle to get phone detected by pc in mtkclient?</li>
+</ul>
+<p>:: Phone must be switched off.<br />
+:: Could be bad a usb cable or improper connection to USB port of pc/phone.<br />
+:: Disconnect and connect again..</p>
+<ul>
+<li>If command sent by 2nd terminal fails and show some error message, means it probably worked.</li>
+</ul>
+<h2 id="credits">Credits</h2>
+<ul>
+<li>kamakiri [xyzz]</li>
+<li>linecode exploit [chimera]</li>
+<li>Chaosmaster</li>
+<li>Geert-Jan Kreileman (GUI, design &amp; fixes)</li>
+<li>All contributors<br />
+<a href="https://github.com/bkerler/mtkclient">MTKClient</a></li>
+</ul>
+</section>
+
+  <hr />
+
+  <!-- Post Taxonomies -->
+  
+<footer class="mt-12 flex flex-col">
+  <!---->
+  <!---->
+  <!---->
+  <!---->
+  
+  <div class="mb-2 flex flex-wrap">
+    <span class="block-bg mb-1.5 mr-1.5 rounded-lg px-5 py-1.5">Tags </span>
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://coleaderme.github.io/tags/boot/"
+      >boot</a
+    >
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://coleaderme.github.io/tags/root/"
+      >root</a
+    >
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://coleaderme.github.io/tags/vbmeta/"
+      >vbmeta</a
+    >
+    
+    <a
+      class="block-bg block-hover mb-1.5 mr-1.5 rounded-lg px-5 py-1.5 no-underline"
+      href="https://coleaderme.github.io/tags/mtkclient/"
+      >mtkclient</a
+    >
+    
+  </div>
+  
+</footer>
+
+<!---->
+
+  <!-- Post Nav -->
+  
+<nav class="block-bg mt-12 flex rounded-lg text-lg">
+  
+  <a
+    class="block-hover-mask flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;disable-touchpad-corner-gestures&#x2F;"
+    ><span class="mr-1.5">←</span><span>Disable touchpad gestures</span></a
+  >
+  <!---->
+  
+  <a
+    class="block-hover-mask ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline"
+    href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;new-theme&#x2F;"
+    ><span>New Theme!</span><span class="ml-1.5">→</span></a
+  >
+  
+</nav>
+
+<!---->
+
+  <!-- Comment -->
+  <!---->
+  <!---->
+<!---->
+  
+</article>
+
+    </main>
+
+    <footer class="mx-auto flex max-w-3xl flex-wrap items-center px-8 py-4 text-sm opacity-60">
+  <div class="mr-auto basis-full lg:basis-1/2">
+    &copy; 2020 -  2025
+    <a class="link" href="https://coleaderme.github.io"
+      >coleaderme</a
+    >
+     |<!---->
+    <!---->
+    <a class="link" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;deed" rel="noopener" target="_blank">
+      CC BY-SA 4.0
+    </a>
+    <!---->
+    
+  </div>
+  <div class="flex basis-full lg:basis-1/2 lg:justify-end">
+    <a class="link mr-6 lg:ml-6" href="https://www.getzola.org/" rel="noopener" target="_blank"
+      >Powered by Zola</a
+    >
+    <a class="link" href="https://github.com/st1020/kita" rel="noopener" target="_blank">✎ Kita</a>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,1076 @@
+<!doctype html>
+<html class="not-ready lg:text-base" lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>
+    Home
+  </title>
+
+  <!-- Meta -->
+  <meta name="theme-color" />
+
+  <!-- Author -->
+  
+  <meta name="description" content="Share some stuff and etc..." />
+  <meta name="author" content="coleaderme" />
+  
+
+  <!-- CSS & JS -->
+  <link rel="preload stylesheet" as="style" href="https://coleaderme.github.io/main.css" />
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --bg-dark: #18181b;
+      --header: #e4e4e7;
+      --header-dark: #27272a;
+    }
+  </style>
+
+  
+
+  <!-- Dark Icon -->
+  <link rel="preload" as="image" href="https://coleaderme.github.io/icons/theme.svg" />
+
+  <!-- Math -->
+  
+  <!---->
+
+  <!-- Mermaid -->
+  
+  <!---->
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://coleaderme.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coleaderme.github.io/apple-touch-icon.png" />
+
+  <!-- Feeds -->
+  
+  <!---->
+  
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Atom"
+    href="https://coleaderme.github.io/atom.xml"
+  />
+  
+  <!---->
+  
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https:&#x2F;&#x2F;coleaderme.github.io" />
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header
+  class="header fixed top-0 z-40 mx-auto min-h-[3.5rem] w-full"
+>
+  <div class="mx-auto w-full max-w-4xl p-3 lg:flex lg:justify-between">
+    <div class="flex justify-between">
+      <div class="flex items-center">
+        <a class="text-2xl font-semibold" href="https://coleaderme.github.io">Home</a>
+        <div
+          class="btn-dark ml-4 h-6 w-6 shrink-0 cursor-pointer text-[0] [background:url(./icons/theme.svg)_left_center/cover_no-repeat] dark:invert dark:[background-position:right]"
+          role="button"
+          aria-label="Dark"
+        ></div>
+      </div>
+      
+      <div
+        class="btn-menu relative z-50 flex h-8 w-8 shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+        role="button"
+        aria-label="Menu"
+      ></div>
+      
+    </div>
+    <script>
+      // base
+      const htmlClass = document.documentElement.classList;
+      setTimeout(() => {
+        htmlClass.remove("not-ready");
+      }, 10);
+
+      // mobile menu
+      const btnMenu = document.querySelector(".btn-menu");
+      btnMenu?.addEventListener("click", () => {
+        htmlClass.toggle("open");
+      });
+
+      // dark theme
+      const setDark = (isDark) => {
+        htmlClass[isDark ? "add" : "remove"]("dark");
+        localStorage.setItem("dark", isDark);
+      };
+
+      // init
+      const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+      if (htmlClass.contains("dark")) {
+        setDark(true);
+      } else {
+        const darkVal = localStorage.getItem("dark");
+        setDark(darkVal ? darkVal === "true" : darkScheme.matches);
+      }
+
+      // listen system
+      darkScheme.addEventListener("change", (event) => {
+        setDark(event.matches);
+      });
+
+      // manual switch
+      const btnDark = document.querySelector(".btn-dark");
+      btnDark.addEventListener("click", () => {
+        setDark(localStorage.getItem("dark") !== "true");
+      });
+    </script>
+    
+    <nav class="flex w-full items-center lg:w-auto">
+      <ul
+        class="nav-wrapper flex w-full flex-col py-2 lg:w-auto lg:flex-row lg:self-center lg:py-0"
+      >
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://coleaderme.github.io//archive"
+            >Archive</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://coleaderme.github.io//tags"
+            >Tags</a
+          >
+        </li>
+        
+        <li>
+          <a
+            class="primary-link block py-2 text-center text-lg font-medium lg:px-3 lg:py-0"
+            href="https://coleaderme.github.io//about"
+            >About</a
+          >
+        </li>
+        
+      </ul>
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-4 pb-16 pt-32 dark:prose-invert"
+    >
+      
+<!-- Taxonomy Title -->
+<h1 class="mb-16">Tags</h1>
+<!-- Taxonomies -->
+<div class="not-prose grid grid-cols-1 gap-4 md:grid-cols-2">
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;administrative&#x2F;"> #Administrative </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;fix-windows-location&#x2F;">Fix Greyed out Windows Location</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;audio&#x2F;"> #Audio </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;author&#x2F;"> #author </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;autocomplete&#x2F;"> #Autocomplete </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;backup&#x2F;"> #Backup </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;windows-driver-backup&#x2F;">Windows Drivers Backup</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;boot&#x2F;"> #Boot </a>
+      <sup class="opacity-60">2</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;root-mtk&#x2F;">Root Mediatek devices</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;class&#x2F;"> #class </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;cli&#x2F;"> #CLI </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;code&#x2F;"> #code </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;css&#x2F;"> #css </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;shortcodes&#x2F;">Shortcodes</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;ctrl&#x2F;"> #Ctrl </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;double-driver&#x2F;"> #Double Driver </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;windows-driver-backup&#x2F;">Windows Drivers Backup</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;download&#x2F;"> #Download </a>
+      <sup class="opacity-60">2</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;youtube-playlist-dl&#x2F;">YouTube Playlist Downloader Fast and Easy!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;drivers&#x2F;"> #Drivers </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;windows-driver-backup&#x2F;">Windows Drivers Backup</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;dual&#x2F;"> #Dual </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;easy&#x2F;"> #Easy </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;efi&#x2F;"> #efi </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;emoji&#x2F;"> #Emoji </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;emojify&#x2F;"> #emojify </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;equalizer&#x2F;"> #Equalizer </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;fixes&#x2F;"> #Fixes </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;full&#x2F;"> #Full </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;generate&#x2F;"> #Generate </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;github-ssh&#x2F;">Github SSH Key</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;gesture&#x2F;"> #gesture </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;disable-touchpad-corner-gestures&#x2F;">Disable touchpad gestures</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;github&#x2F;"> #Github </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;github-ssh&#x2F;">Github SSH Key</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;greyed&#x2F;"> #Greyed </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;fix-windows-location&#x2F;">Fix Greyed out Windows Location</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;grub&#x2F;"> #Grub </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;guide&#x2F;"> #Guide </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;html&#x2F;"> #html </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;shortcodes&#x2F;">Shortcodes</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;hugo&#x2F;"> #Hugo </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;input&#x2F;"> #input </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;instagram&#x2F;"> #Instagram </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;install&#x2F;"> #install </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;intellisense&#x2F;"> #Intellisense </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;key&#x2F;"> #Key </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;github-ssh&#x2F;">Github SSH Key</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;location&#x2F;"> #Location </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;fix-windows-location&#x2F;">Fix Greyed out Windows Location</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;lsp&#x2F;"> #LSP </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;markdown&#x2F;"> #markdown </a>
+      <sup class="opacity-60">2</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;shortcodes&#x2F;">Shortcodes</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;theme-config&#x2F;">Theme Config Guide</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;master&#x2F;"> #Master </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;mic&#x2F;"> #mic </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;microsoft&#x2F;"> #Microsoft </a>
+      <sup class="opacity-60">2</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;fix-windows-location&#x2F;">Fix Greyed out Windows Location</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;mtkclient&#x2F;"> #mtkclient </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;root-mtk&#x2F;">Root Mediatek devices</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;output&#x2F;"> #output </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;picture&#x2F;"> #Picture </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;powershell&#x2F;"> #PowerShell </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;windows-driver-backup&#x2F;">Windows Drivers Backup</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;profile&#x2F;"> #Profile </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;pulseaudio&#x2F;"> #Pulseaudio </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;python&#x2F;"> #Python </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;redirection&#x2F;"> #Redirection </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;restore&#x2F;"> #Restore </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;windows-driver-backup&#x2F;">Windows Drivers Backup</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;root&#x2F;"> #root </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;root-mtk&#x2F;">Root Mediatek devices</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;segoe&#x2F;"> #Segoe </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;setup&#x2F;"> #Setup </a>
+      <sup class="opacity-60">2</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;github-ssh&#x2F;">Github SSH Key</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;size&#x2F;"> #Size </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;igpp&#x2F;">Instagram Profile Full Size!</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;span&#x2F;"> #span </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;speaker&#x2F;"> #speaker </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;pulseaudio&#x2F;">Audio Redirection speaker output to mic input | Pulseaudio</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;ssh&#x2F;"> #SSH </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;github-ssh&#x2F;">Github SSH Key</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;sublime&#x2F;"> #Sublime </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;support&#x2F;"> #Support </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;emoji-support&#x2F;">Emoji Support</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;text&#x2F;"> #Text </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;sublime&#x2F;">Sublime Text</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;theme&#x2F;"> #theme </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;theme-config&#x2F;">Theme Config Guide</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;touchpad&#x2F;"> #touchpad </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;disable-touchpad-corner-gestures&#x2F;">Disable touchpad gestures</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;vbmeta&#x2F;"> #vbmeta </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;root-mtk&#x2F;">Root Mediatek devices</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;windows&#x2F;"> #Windows </a>
+      <sup class="opacity-60">4</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;windows-driver-backup&#x2F;">Windows Drivers Backup</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;fix-windows-location&#x2F;">Fix Greyed out Windows Location</a>
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;disable-touchpad-corner-gestures&#x2F;">Disable touchpad gestures</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;workaround&#x2F;"> #workaround </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;hp-dual-boot&#x2F;">HP Dual Boot workaround</a>
+    <!---->
+
+    <!---->
+  </div>
+  
+  <div class="block-bg flex h-full flex-col rounded-lg px-5 pb-2 md:min-h-[18rem]">
+    <h3 class="my-4 text-xl font-bold text-black dark:text-white">
+      <a class="primary-link" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;tags&#x2F;youtube&#x2F;"> #youtube </a>
+      <sup class="opacity-60">1</sup>
+    </h3>
+
+    
+    <a class="secondary-link my-0.5" href="https:&#x2F;&#x2F;coleaderme.github.io&#x2F;youtube-playlist-dl&#x2F;">YouTube Playlist Downloader Fast and Easy!</a>
+    <!---->
+
+    <!---->
+  </div>
+  <!---->
+</div>
+
+    </main>
+
+    <footer class="mx-auto flex max-w-3xl flex-wrap items-center px-8 py-4 text-sm opacity-60">
+  <div class="mr-auto basis-full lg:basis-1/2">
+    &copy; 2020 -  2025
+    <a class="link" href="https://coleaderme.github.io"
+      >coleaderme</a
+    >
+     |<!---->
+    <!---->
+    <a class="link" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;deed" rel="noopener" target="_blank">
+      CC BY-SA 4.0
+    </a>
+    <!---->
+    
+  </div>
+  <div class="flex basis-full lg:basis-1/2 lg:justify-end">
+    <a class="link mr-6 lg:ml-6" href="https://www.getzola.org/" rel="noopener" target="_blank"
+      >Powered by Zola</a
+    >
+    <a class="link" href="https://github.com/st1020/kita" rel="noopener" target="_blank">✎ Kita</a>
+  </div>
+</footer>
+
+  </body>
+</html>

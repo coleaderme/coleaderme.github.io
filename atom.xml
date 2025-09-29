@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Home</title>
+    <subtitle>Share some stuff and etc...</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://coleaderme.github.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://coleaderme.github.io/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-09-29T00:00:00+00:00</updated>
+    <id>https://coleaderme.github.io/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Windows Drivers Backup</title>
+        <published>2025-09-29T00:00:00+00:00</published>
+        <updated>2025-09-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/windows-driver-backup/"/>
+        <id>https://coleaderme.github.io/windows-driver-backup/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/windows-driver-backup/">&lt;p&gt;&lt;strong&gt;Simple app&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+Download: Double Driver from &lt;a href=&quot;https:&#x2F;&#x2F;www.majorgeeks.com&#x2F;files&#x2F;details&#x2F;double_driver.html&quot;&gt;here&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;example location &lt;code&gt;d:\drivers&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+run &lt;code&gt;powershell&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;backup&quot;&gt;Backup&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;Export-WindowsDriver -Online -Destination d:\drivers
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h1 id=&quot;restore&quot;&gt;Restore&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell &quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;pnputil &amp;#x2F;add-driver &amp;quot;d:\drivers\*.inf&amp;quot; &amp;#x2F;subdirs &amp;#x2F;install &amp;#x2F;reboot
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>HP Dual Boot workaround</title>
+        <published>2025-06-21T00:00:00+00:00</published>
+        <updated>2025-06-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/hp-dual-boot/"/>
+        <id>https://coleaderme.github.io/hp-dual-boot/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/hp-dual-boot/">&lt;h1 id=&quot;fixes-hp-ignoring-linux-boot-manager-grub&quot;&gt;Fixes: HP ignoring linux boot manager (Grub)&lt;&#x2F;h1&gt;
+&lt;ol&gt;
+&lt;li&gt;cd &lt;code&gt;&#x2F;boot&#x2F;efi&#x2F;EFI&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;sh&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;Grub&amp;#x2F;       # or some custom name
+Microsoft&amp;#x2F;  # Windows
+Boot&amp;#x2F;       # default fallback (no OS)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Replace Windows boot efi with Grub efi.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;sh&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo mv Microsoft Microsoft.bak
+sudo mkdir -p Microsoft&amp;#x2F;Boot
+sudo cp Grub&amp;#x2F;grubx64.efi Microsoft&amp;#x2F;Boot&amp;#x2F;bootmgfw.efi
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;custom boot entry for Windows to chainload from Grub.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Find UUID of &lt;strong&gt;&#x2F;boot&#x2F;efi&lt;&#x2F;strong&gt;:   &lt;code&gt;sudo blkid&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;(for example:- D064-C2CB)&lt;&#x2F;p&gt;
+&lt;p&gt;edit &lt;code&gt;sudo nano &#x2F;etc&#x2F;grub.d&#x2F;40_custom&lt;&#x2F;code&gt;:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;menuentry &amp;quot;Windows Boot Manager (manual)&amp;quot; {
+    insmod part_gpt
+    insmod fat
+    search --no-floppy --fs-uuid --set=root UUID_HERE  # &amp;lt;= UUID of &amp;#x2F;boot&amp;#x2F;efi
+    chainloader &amp;#x2F;EFI&amp;#x2F;Microsoft.bak&amp;#x2F;Boot&amp;#x2F;bootmgfw.efi   # the folder we renamed in step 2.
+}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Update grub (requires &lt;strong&gt;os-prober&lt;&#x2F;strong&gt;)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;edit &lt;code&gt;sudo nano &#x2F;etc&#x2F;default&#x2F;grub&lt;&#x2F;code&gt;:
+un-comment this line --&amp;gt;
+&lt;code&gt;GRUB_DISABLE_OS_PROBER=&amp;quot;false&amp;quot;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;sudo os-prober
+sudo grub-mkconfig -o &amp;#x2F;boot&amp;#x2F;grub&amp;#x2F;grub.cfg
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now you&#x27;ll be able to boot directly into grub,
+from there you can decide to boot into Linux&#x2F;Windows.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Fix Greyed out Windows Location</title>
+        <published>2025-03-24T00:00:00+00:00</published>
+        <updated>2025-03-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/fix-windows-location/"/>
+        <id>https://coleaderme.github.io/fix-windows-location/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/fix-windows-location/">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Ensured that the &lt;code&gt;Geolocation&lt;&#x2F;code&gt; service is running and set to Automatic&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Registry edit &lt;strong&gt;(IMPORTANT)&lt;&#x2F;strong&gt; :&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Replace value of all keys from &lt;code&gt;1&lt;&#x2F;code&gt; to &lt;code&gt;0&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Restart PC.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ul&gt;
+&lt;li&gt;If this does not fix then most likely you need to Clean Install Windows.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Ensured that this registry key is set to &amp;quot;Allow&amp;quot;:&lt;br &#x2F;&gt;
+&lt;code&gt;HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Deleted this key in the registry:&lt;br &#x2F;&gt;
+&lt;code&gt;HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\lfsvc\TriggerInfo\3&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensured that the three policies in this folder are all not configured:&lt;br &#x2F;&gt;
+Administrative &lt;code&gt;Templates\Windows&lt;&#x2F;code&gt; &lt;code&gt;Components\Location&lt;&#x2F;code&gt; and &lt;code&gt;Sensors&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Ensured that the policy &amp;quot;Turn off Windows Location Provider&amp;quot; is not configured in this folder:&lt;br &#x2F;&gt;
+Administrative &lt;code&gt;Templates\Windows&lt;&#x2F;code&gt; &lt;code&gt;Components\Location&lt;&#x2F;code&gt; and &lt;code&gt;Sensors\Windows&lt;&#x2F;code&gt; Location Provider  &lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Windows Tips n Tricks</title>
+        <published>2024-12-11T00:00:00+00:00</published>
+        <updated>2024-12-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/windowstipstricks/"/>
+        <id>https://coleaderme.github.io/windowstipstricks/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/windowstipstricks/">&lt;h1 id=&quot;change-to-ahci-without-windows-reinstall&quot;&gt;Change to AHCI (without windows reinstall)&lt;&#x2F;h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Run &lt;code&gt;cmd&lt;&#x2F;code&gt; as Admin&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bcdedit &#x2F;set {current} safeboot minimal&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;shutdown &#x2F;r &#x2F;t 0&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Computer will restart now. Goto BIOS&#x2F;UEFI and change to AHCI.&lt;&#x2F;li&gt;
+&lt;li&gt;Now you&#x27;ll be in safeboot mode. Run &lt;code&gt;cmd&lt;&#x2F;code&gt; as Admin.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;bcdedit &#x2F;deletevalue {current} safeboot&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;shutdown &#x2F;r &#x2F;t 0&lt;&#x2F;code&gt;
+DONE! Windows will start with AHCI enabled.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;win8-1-remove-modern-apps&quot;&gt;Win8.1 Remove Modern Apps&lt;&#x2F;h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Open &lt;code&gt;Powershell&lt;&#x2F;code&gt; as Admin.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Get-AppxPackage -AllUsers | Remove-AppxPackage&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Get-AppXProvisionedPackage -online | Remove-AppxProvisionedPackage –online&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h1 id=&quot;dnscrypt-proxy-setup&quot;&gt;DNScrypt-proxy setup&lt;&#x2F;h1&gt;
+&lt;p&gt;Github Instructions: https:&#x2F;&#x2F;github.com&#x2F;DNSCrypt&#x2F;dnscrypt-proxy&#x2F;wiki&#x2F;Installation-Windows
+Simple Instructions:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Download for x64 &lt;code&gt;https:&#x2F;&#x2F;github.com&#x2F;DNSCrypt&#x2F;dnscrypt-proxy&#x2F;releases&#x2F;download&#x2F;2.1.5&#x2F;dnscrypt-proxy-win64-2.1.5.zip&lt;&#x2F;code&gt; (Recommended)&lt;&#x2F;li&gt;
+&lt;li&gt;Download for x32 &lt;code&gt;https:&#x2F;&#x2F;github.com&#x2F;DNSCrypt&#x2F;dnscrypt-proxy&#x2F;releases&#x2F;download&#x2F;2.1.5&#x2F;dnscrypt-proxy-win32-2.1.5.zip&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;extract zip file&lt;&#x2F;li&gt;
+&lt;li&gt;open folder, to open &lt;code&gt;cmd&lt;&#x2F;code&gt; in current folder, press {ctrl+L} and type &lt;code&gt;cmd&lt;&#x2F;code&gt; {Enter}.&lt;&#x2F;li&gt;
+&lt;li&gt;Copy configuration file via &lt;strong&gt;cmd&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;copy example-dnscrypt-proxy.toml dnscrypt-proxy.toml&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;start dnscrypt-proxy program&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;.\dnscrypt-proxy.exe&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;change dns to &lt;code&gt;127.0.0.1&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;from now onwards everytime windows start, just run &lt;code&gt;.\dnscrypt-proxy&lt;&#x2F;code&gt; in &lt;strong&gt;cmd&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>VDJ Script mapping</title>
+        <published>2024-06-30T00:00:00+00:00</published>
+        <updated>2024-06-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/vdjscript-mapping/"/>
+        <id>https://coleaderme.github.io/vdjscript-mapping/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/vdjscript-mapping/">&lt;h1 id=&quot;virtual-dj-2020-script-for-mapping&quot;&gt;Virtual DJ 2020++ script for mapping&lt;&#x2F;h1&gt;
+&lt;p&gt;VDJscript knows 6 types of parameters:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;text: need to be enclosed in either single quotes (&#x27;) or double quotes (&amp;quot;): load &#x27;myfile.mp3&#x27;&lt;&#x2F;li&gt;
+&lt;li&gt;boolean: can be the keywords on, off or toggle. (they are often equivalent to the integers 1, 0 and -1 respectively): smart_play off&lt;&#x2F;li&gt;
+&lt;li&gt;time: are specified by adding the keyword ms: nudge +100ms&lt;&#x2F;li&gt;
+&lt;li&gt;integer: effect_select +1&lt;&#x2F;li&gt;
+&lt;li&gt;decimal: crossfader 0.5&lt;&#x2F;li&gt;
+&lt;li&gt;percentage: crossfader 50%&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Official Docs: https:&#x2F;&#x2F;virtualdj.com&#x2F;goto&#x2F;vdjscript&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;deck-1-operations-on-press-of-home-button&quot;&gt;[Deck 1] operations on press of &lt;code&gt;{HOME}&lt;&#x2F;code&gt; button&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;deck 1 repeat 200ms &amp;amp; effect_slider 1 +4% &amp;amp; eq_low -4% &amp;amp; eq_mid -4%
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Explaination:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;target deck 1&lt;&#x2F;li&gt;
+&lt;li&gt;repeats every 200ms (on button hold)&lt;&#x2F;li&gt;
+&lt;li&gt;do:
+&lt;ul&gt;
+&lt;li&gt;1st effect slider on rack increase by +4%&lt;&#x2F;li&gt;
+&lt;li&gt;eq_low (low range) reduce by -4%&lt;&#x2F;li&gt;
+&lt;li&gt;eq_mid (mid range) reduce by -4%&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;deck-2-operations-on-press-of-end-button&quot;&gt;[Deck 2] operations on press of &lt;code&gt;{END}&lt;&#x2F;code&gt; button&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;deck 2 repeat 200ms &amp;amp; effect_slider 1 +4% &amp;amp; eq_low -4% &amp;amp; eq_mid -4%
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Explaination:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;target deck 1&lt;&#x2F;li&gt;
+&lt;li&gt;repeats every 200ms (on button hold)&lt;&#x2F;li&gt;
+&lt;li&gt;do:
+&lt;ul&gt;
+&lt;li&gt;1st effect slider on rack increase by +4%&lt;&#x2F;li&gt;
+&lt;li&gt;eq_low (low range) reduce by -4%&lt;&#x2F;li&gt;
+&lt;li&gt;eq_mid (mid range) reduce by -4%&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;reset-effect-slider-and-eq&quot;&gt;Reset effect_slider and eq:&lt;&#x2F;h2&gt;
+&lt;p&gt;If effect slider is &lt;strong&gt;reverb&lt;&#x2F;strong&gt; then reset value is 0%&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;(deck 1 effect_slider 1 0% &amp;amp; eq_reset) &amp;amp; (deck 2 effect_slider 1 0% &amp;amp; eq_reset)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For any other effect slider where reset position is in middle.&lt;br &#x2F;&gt;
+such as &lt;strong&gt;noise&lt;&#x2F;strong&gt;, then reset value is 50%&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;rust&quot; class=&quot;language-rust &quot;&gt;&lt;code class=&quot;language-rust&quot; data-lang=&quot;rust&quot;&gt;(deck 1 effect_slider 1 50% &amp;amp; eq_reset) &amp;amp; (deck 2 effect_slider 1 50% &amp;amp; eq_reset)
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Explaination:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;in first &lt;code&gt;()&lt;&#x2F;code&gt; target deck 1&lt;&#x2F;li&gt;
+&lt;li&gt;do:
+&lt;ul&gt;
+&lt;li&gt;effect slider 1 to value 0%&lt;&#x2F;li&gt;
+&lt;li&gt;reset eq (low,mid,high)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;same thing in second &lt;code&gt;()&lt;&#x2F;code&gt; but for deck 2&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;beatjump-seek-around-faster&quot;&gt;beatjump (seek around faster):&lt;&#x2F;h2&gt;
+&lt;p&gt;[CTRL+Arrow]  &lt;code&gt;beatjump +1&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+[CTRL+Arrow]  &lt;code&gt;beatjump -1&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+try &lt;code&gt;nudge -100ms&lt;&#x2F;code&gt;  for cool reverse swipe&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;more to be added soon..&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Github SSH Key</title>
+        <published>2024-06-11T00:00:00+00:00</published>
+        <updated>2024-06-11T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/github-ssh/"/>
+        <id>https://coleaderme.github.io/github-ssh/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/github-ssh/">&lt;h2 id=&quot;generate-key&quot;&gt;Generate key&lt;&#x2F;h2&gt;
+&lt;p&gt;Just replace your github email address in command:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;ssh-keygen -t ed25519 -C &amp;quot;yourname@email.com&amp;quot;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;It will prompt for password (as an extra layer of protection) 
+you can skip by pressing [ENTER].&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;copy-public-key&quot;&gt;Copy public key&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cat ~&amp;#x2F;.ssh&amp;#x2F;id_ed25519.pub | xsel -b # copying content of public key
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;filename is ending with &lt;strong&gt;.pub&lt;&#x2F;strong&gt;, copy content of public key.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;add-to-github&quot;&gt;Add to github&lt;&#x2F;h2&gt;
+&lt;p&gt;Github &amp;gt;&amp;gt; Profile &amp;gt;&amp;gt; Settings &amp;gt;&amp;gt; SSH and GPG Keys&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;settings&#x2F;keys&quot;&gt;Goto this page&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Click &lt;strong&gt;New SSH key&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Title: Any&lt;&#x2F;p&gt;
+&lt;p&gt;Key Type: Authentication key&lt;&#x2F;p&gt;
+&lt;p&gt;Key: &lt;em&gt;paste here&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Click &lt;strong&gt;Add SSH key&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;DONE!&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Now try to clone your own repo with SSH..&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone git@github.com:YOURNAME&amp;#x2F;REPO.git
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Userscripts</title>
+        <published>2024-05-30T00:00:00+00:00</published>
+        <updated>2024-05-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/userscript/"/>
+        <id>https://coleaderme.github.io/userscript/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/userscript/">&lt;h1 id=&quot;userscripts&quot;&gt;Userscripts&lt;&#x2F;h1&gt;
+&lt;p&gt;Enhance web experience.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;without-3rd-party-extention&quot;&gt;Without 3rd-party Extention&lt;&#x2F;h2&gt;
+&lt;p&gt;You don&#x27;t need external script runner extentions for tasks such as simple redirects..&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a file &lt;code&gt;*.user.js&lt;&#x2F;code&gt; such as: &lt;code&gt;MyScript.user.js&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Edit and save&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;js&quot; class=&quot;language-js &quot;&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&amp;#x2F;&amp;#x2F; ==UserScript==
+&amp;#x2F;&amp;#x2F; @name           OldReddit
+&amp;#x2F;&amp;#x2F; @version        1.0
+&amp;#x2F;&amp;#x2F; @namespace      http:&amp;#x2F;&amp;#x2F;example.com
+&amp;#x2F;&amp;#x2F; @description    This script will redirect www.reddit.com to old.reddit.com
+&amp;#x2F;&amp;#x2F; @match          https:&amp;#x2F;&amp;#x2F;www.reddit.com&amp;#x2F;*
+&amp;#x2F;&amp;#x2F; ==&amp;#x2F;UserScript==
+
+&amp;#x2F;&amp;#x2F; some metadata above and actual code below
+&amp;#x2F;&amp;#x2F; OUR ACTUAL CODE
+function reddirect(){
+  window.location.host = &amp;quot;old.reddit.com&amp;quot;;
+}
+reddirect();
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;lets breakdown not-so-obvious metadata:&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+&lt;code&gt;@namespace&lt;&#x2F;code&gt; leave it to &#x27;https:&#x2F;&#x2F;example.com&#x27; know &lt;a href=&quot;https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;386612&#x2F;what-is-the-greasemonkey-namespace-needed-for&quot;&gt;more&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+&lt;code&gt;@match&lt;&#x2F;code&gt; this will match given url pattern and only run this script on those.&lt;&#x2F;p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Drag-n-drop &lt;code&gt;MyScript.user.js&lt;&#x2F;code&gt; to chrome extentions tab.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(83, 211, 230, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;info.svg)&quot;
+    &gt;
+      info
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;Info&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;for more advanced use cases 3rd-party Extentions will be required.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;h2 id=&quot;with-3rd-party-extention&quot;&gt;With 3rd-party Extention&lt;&#x2F;h2&gt;
+&lt;p&gt;Choice of extention: &lt;a href=&quot;https:&#x2F;&#x2F;violentmonkey.github.io&#x2F;get-it&#x2F;&quot;&gt;Violentmonkey&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;violentmonkey&#x2F;&quot;&gt;open source&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;minimal UI&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;violentmonkey.github.io&#x2F;api&#x2F;gm&#x2F;&quot;&gt;nice documentation&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Sublime Text</title>
+        <published>2024-05-19T00:00:00+00:00</published>
+        <updated>2024-05-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/sublime/"/>
+        <id>https://coleaderme.github.io/sublime/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/sublime/">&lt;h1 id=&quot;sublime-text-4&quot;&gt;Sublime text 4&lt;&#x2F;h1&gt;
+&lt;p&gt;Get autocomplete, code suggestions like vscode in Sublime Text.&lt;br &#x2F;&gt;
+Press Ctrl+Shift+P &lt;code&gt;install package&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;code&gt;LSP&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Install &lt;code&gt;LSP-pyright&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;note: use &lt;code&gt;node&lt;&#x2F;code&gt; bin provided by sublime.&lt;br &#x2F;&gt;
+location: &amp;quot;~&#x2F;.cache&#x2F;sublime-text&#x2F;Package Storage&#x2F;lsp_utils&#x2F;node-runtime&#x2F;18.18.1&#x2F;node&#x2F;bin&#x2F;node&amp;quot;&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;why-use-sublime-text&quot;&gt;Why use sublime text?&lt;&#x2F;h4&gt;
+&lt;p&gt;Fast, low memory usage and easy to use.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;neovim-uses-low-memory-and-fast-af&quot;&gt;Neovim uses low memory and fast AF.&lt;&#x2F;h4&gt;
+&lt;p&gt;Not intuitive shortcuts&#x2F;hotkeys as traditional editors.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;extra&quot;&gt;Extra&lt;&#x2F;h3&gt;
+&lt;p&gt;for simple text edits use: &lt;a href=&quot;https:&#x2F;&#x2F;micro-editor.github.io&#x2F;&quot;&gt;Micro&lt;&#x2F;a&gt; enhanced nano.&lt;br &#x2F;&gt;
+it has your traditional editor shortcuts;&lt;br &#x2F;&gt;
+such as..&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;alt+shift+arrowUP&#x2F;DN: mutltiline editing&lt;&#x2F;li&gt;
+&lt;li&gt;ctrl+c &#x2F; ctrl+v : copy &#x2F; paste&lt;&#x2F;li&gt;
+&lt;li&gt;ctrl+d : duplicate line&lt;&#x2F;li&gt;
+&lt;li&gt;ctrl+q : quit&lt;&#x2F;li&gt;
+&lt;li&gt;ctrl+s : save&lt;&#x2F;li&gt;
+&lt;li&gt;ctrl+x : cut&lt;&#x2F;li&gt;
+&lt;li&gt;ctrl+z  &#x2F; ctrl+y : undo &#x2F; redo&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Instagram Profile Full Size!</title>
+        <published>2024-05-03T00:00:00+00:00</published>
+        <updated>2024-05-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/igpp/"/>
+        <id>https://coleaderme.github.io/igpp/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/igpp/">&lt;h1 id=&quot;igpp-instagram-profile-picture-dl&quot;&gt;igpp: Instagram Profile Picture DL&lt;&#x2F;h1&gt;
+&lt;p&gt;Download HQ 1080px insta profile picture&lt;br &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;coleaderme&#x2F;coleaderme.github.io&#x2F;main&#x2F;static&#x2F;images&#x2F;igpp_web.png&quot; alt=&quot;headers&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;cli-version&quot;&gt;CLI version:&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;coleaderme&#x2F;igpp&#x2F;archive&#x2F;refs&#x2F;heads&#x2F;main.zip&quot;&gt;Download&lt;&#x2F;a&gt; and unzip&lt;br &#x2F;&gt;
+Run:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python igpp.py  apple trevorwallace ...
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;OR&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;web-ui-version&quot;&gt;Web UI version:&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;coleaderme&#x2F;igpp-web&#x2F;archive&#x2F;refs&#x2F;heads&#x2F;main.zip&quot;&gt;Download&lt;&#x2F;a&gt; and unzip&lt;br &#x2F;&gt;
+Run:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python run.py  
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install httpx
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;strong&gt;secrets_session.py&lt;&#x2F;strong&gt; &lt;em&gt;(see below)&lt;&#x2F;em&gt;&lt;br &#x2F;&gt;
+&lt;img src=&quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;coleaderme&#x2F;coleaderme.github.io&#x2F;main&#x2F;static&#x2F;images&#x2F;igpp_headers.webp&quot; alt=&quot;headers&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;a bit more complicated..&lt;&#x2F;em&gt;&lt;br &#x2F;&gt;
+0. Login to instagram.com web&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open Developer tools, goto Network Tab ([ctrl+r] reload to capture traffic)&lt;&#x2F;li&gt;
+&lt;li&gt;Search for web_profile &#x27;copy as Curl&#x27;&lt;&#x2F;li&gt;
+&lt;li&gt;Goto https:&#x2F;&#x2F;curlconverter.com, paste it there&lt;br &#x2F;&gt;
+copy output, paste it in this file &lt;code&gt;secrets_session.py&lt;&#x2F;code&gt; (remove first and last line , i.e. &lt;code&gt;import requests&lt;&#x2F;code&gt; and &lt;code&gt;requests.get&lt;&#x2F;code&gt;)&lt;br &#x2F;&gt;
+DO NOT share &lt;code&gt;secrets_session.py&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Zola deploy</title>
+        <published>2024-03-16T00:00:00+00:00</published>
+        <updated>2024-03-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/zola-deploy-fix/"/>
+        <id>https://coleaderme.github.io/zola-deploy-fix/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/zola-deploy-fix/">&lt;h1 id=&quot;after-so-many-trial-and-errors&quot;&gt;After so many trial and errors..&lt;&#x2F;h1&gt;
+&lt;p&gt;Make changes to your-name.github.io repo&#x27;s&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Actions&lt;&#x2F;strong&gt; &amp;gt;&amp;gt; &lt;strong&gt;New Workflow&lt;&#x2F;strong&gt; &amp;gt;&amp;gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;PASTE this.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; class=&quot;language-yaml &quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;name: Zola on GitHub Pages
+
+on: 
+ push:
+  branches:
+   - main
+
+jobs:
+  build:
+    name: Publish site
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout main
+      uses: actions&amp;#x2F;checkout@v4
+    - name: Build and deploy
+      uses: shalzz&amp;#x2F;zola-deploy-action@v0.18.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;strong&gt;Settings&lt;&#x2F;strong&gt; &amp;gt;&amp;gt; &lt;strong&gt;pages&lt;&#x2F;strong&gt; &amp;gt;&amp;gt;&lt;br &#x2F;&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(83, 211, 230, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;info.svg)&quot;
+    &gt;
+      info
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;Info&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;See cover image&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>New Theme!</title>
+        <published>2024-03-07T00:00:00+00:00</published>
+        <updated>2024-03-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/new-theme/"/>
+        <id>https://coleaderme.github.io/new-theme/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/new-theme/">&lt;h1 id=&quot;update&quot;&gt;Update&lt;&#x2F;h1&gt;
+&lt;p&gt;Site now uses an elegant theme: &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;st1020&#x2F;kita&quot;&gt;Kita&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+Generated by &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;&quot;&gt;zola&lt;&#x2F;a&gt;, previously &lt;a href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;&quot;&gt;hugo&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h1 id=&quot;how-to-use-this-theme&quot;&gt;How to use this theme?&lt;&#x2F;h1&gt;
+&lt;p&gt;Basic guide is available at Kita&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;st1020&#x2F;kita&quot;&gt;github&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;This is how I did..&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;st1020&amp;#x2F;kita  your_site
+cd your_site
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;clean-up&quot;&gt;Clean up&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Edit config.toml: find n replace with your name&lt;&#x2F;li&gt;
+&lt;li&gt;Remove &lt;em&gt;example&lt;&#x2F;em&gt; materials&lt;&#x2F;li&gt;
+&lt;li&gt;Remove &lt;code&gt;placeholders*.md&lt;&#x2F;code&gt; from &lt;code&gt;content&#x2F;&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;adding-content&quot;&gt;Adding content&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Create new file.md in &lt;code&gt;content&#x2F;&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Writing Markdown &lt;a href=&quot;https:&#x2F;&#x2F;www.markdownguide.org&#x2F;basic-syntax&#x2F;&quot;&gt;guide&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;md&quot; class=&quot;language-md &quot;&gt;&lt;code class=&quot;language-md&quot; data-lang=&quot;md&quot;&gt;+++
+title = &amp;quot;New Title&amp;quot;
+date = 2024-12-30
+description = &amp;quot;Not too long text goes here&amp;quot;
++++
+
+writing section begins..
+...
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;view&quot;&gt;View&lt;&#x2F;h2&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;cd your_site
+zola serve
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Root Mediatek devices</title>
+        <published>2024-01-16T16:49:51+05:30</published>
+        <updated>2024-01-16T16:49:51+05:30</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/root-mtk/"/>
+        <id>https://coleaderme.github.io/root-mtk/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/root-mtk/">&lt;h1 id=&quot;mtkclient&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bkerler&#x2F;mtkclient&quot;&gt;MTKClient&lt;&#x2F;a&gt;&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;install&quot;&gt;Install&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;archlinux&quot;&gt;ArchLinux&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo pacman -S python python-pip git libusb usbutils android-tools
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;or&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;yay -S python python-pip git libusb usbutils android-tools
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;grab-files&quot;&gt;Grab files&lt;&#x2F;h4&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;bkerler&amp;#x2F;mtkclient
+cd mtkclient
+pip install -r requirements.txt
+python setup.py build
+python setup.py install
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;hr &#x2F;&gt;
+&lt;h3 id=&quot;windows&quot;&gt;Windows&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;install-python&quot;&gt;Install python&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Install &lt;a href=&quot;https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.9.11&#x2F;python-3.9.11-amd64.exe&quot;&gt;python-3.9&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;during setup, remember to click &amp;quot;Add to path&amp;quot; [✅] option.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4 id=&quot;grab-files-and-install&quot;&gt;Grab files and install&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Download Zip by clicking on &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bkerler&#x2F;mtkclient&quot;&gt;Code&lt;&#x2F;a&gt; button. &lt;&#x2F;li&gt;
+&lt;li&gt;Extract zip file, go into the folder.&lt;&#x2F;li&gt;
+&lt;li&gt;Press [Ctrl+l], type cmd [Enter] &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre&gt;&lt;code&gt;pip install -r requirements.txt
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;get-latest-usbdk-64-bit&quot;&gt;Get latest UsbDk 64-Bit&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Install normal MTK Serial Port driver (or use default Windows COM Port one, make sure no exclamation is seen)&lt;&#x2F;li&gt;
+&lt;li&gt;Get usbdk installer (.msi) from &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;daynix&#x2F;UsbDk&#x2F;releases&#x2F;&quot;&gt;here&lt;&#x2F;a&gt; and install it&lt;&#x2F;li&gt;
+&lt;li&gt;Test on device connect using &amp;quot;UsbDkController -n&amp;quot; if you see a device with 0x0E8D 0x0003&lt;&#x2F;li&gt;
+&lt;li&gt;Works fine under Windows 10 and 11 :D&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;boot-into-brom-mode&quot;&gt;Boot into brom mode&lt;&#x2F;h3&gt;
+&lt;p&gt;Once the mtk script is running, boot into brom mode by powering off device,&lt;br &#x2F;&gt;
+press and hold either &lt;em&gt;vol up + power&lt;&#x2F;em&gt; or &lt;em&gt;vol down + power&lt;&#x2F;em&gt; and connect the phone.&lt;br &#x2F;&gt;
+Once detected by the tool, &lt;em&gt;release the buttons&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;using-mtktools-via-the-graphical-user-interface&quot;&gt;Using MTKTools via the graphical user interface:&lt;&#x2F;h3&gt;
+&lt;p&gt;For the &#x27;basics&#x27; you can use the GUI interface. This supports dumping partitions or the full flash for now. Run the following command:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk_gui
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;run-multiple-commands&quot;&gt;Run multiple commands&lt;&#x2F;h3&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk script run.example
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;See the file &amp;quot;run.example&amp;quot; on how to structure the script file&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;root-the-phone-tested-with-android-9-12&quot;&gt;Root the phone (Tested with android 9 - 12)&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Dump boot and vbmeta&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk r boot,vbmeta boot.img,vbmeta.img
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Reboot the phone&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk reset
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Download latest &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;topjohnwu&#x2F;Magisk&#x2F;releases&quot;&gt;Magisk&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Install on target phone&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;you need to enable usb-debugging via Settings&#x2F;About phone&#x2F;Version, Tap 7x on build number&lt;&#x2F;li&gt;
+&lt;li&gt;Go to Settings&#x2F;Additional settings&#x2F;Developer options, enable &amp;quot;OEM unlock&amp;quot; and &amp;quot;USB Debugging&amp;quot;&lt;&#x2F;li&gt;
+&lt;li&gt;Install magisk apk&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;adb install Magisk.apk
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;accept auth rsa request on mobile screen of course to allow adb connection&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Upload boot to &#x2F;sdcard&#x2F;Download&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;adb push boot.img &amp;#x2F;sdcard&amp;#x2F;Download
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;6&quot;&gt;
+&lt;li&gt;Start magisk, tap on Install, select boot.img from &#x2F;sdcard&#x2F;Download, then:&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Copy to pc and rename to boot.patched&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;adb pull &amp;#x2F;sdcard&amp;#x2F;Download&amp;#x2F;[DISPLAYED MAGISK PATCHED BOOT FILENAME HERE]
+mv [DISPLAYED MAGISK PATCHED BOOT FILENAME HERE] boot.patched
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;7&quot;&gt;
+&lt;li&gt;If these two commands below doesnt work &lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Putting into FASTBOOT MODE &lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;adb reboot bootloader ## OR manually via buttons.  
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Unlocking bootloader (via fastboot)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;fastboot flashing unlock ## your&amp;#x27;s might be different
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Unlocking bootloader (if fastboot is unavailable&#x2F;command is not known&#x2F;hard bricked?)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk e metadata,userdata,md_udc
+python mtk da seccfg unlock
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;8&quot;&gt;
+&lt;li&gt;Flash Magisk patched &lt;code&gt;boot.patched&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk w boot,vbmeta boot.patched,vbmeta.img.empty
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;If ^ command didn&#x27;t work, rename your device&#x27;s &lt;code&gt;vbmeta.img&lt;&#x2F;code&gt; to &lt;code&gt;vbmeta.img.empty&lt;&#x2F;code&gt; then execute again..&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk w boot,vbmeta boot.patched,vbmeta.img.empty
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;9&quot;&gt;
+&lt;li&gt;Reboot the phone&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;python mtk reset
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;10&quot;&gt;
+&lt;li&gt;Disconnect usb cable and enjoy your rooted phone :) &lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Struggle to get phone detected by pc in mtkclient?&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;:: Phone must be switched off.&lt;br &#x2F;&gt;
+:: Could be bad a usb cable or improper connection to USB port of pc&#x2F;phone.&lt;br &#x2F;&gt;
+:: Disconnect and connect again..&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;If command sent by 2nd terminal fails and show some error message, means it probably worked.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;credits&quot;&gt;Credits&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;kamakiri [xyzz]&lt;&#x2F;li&gt;
+&lt;li&gt;linecode exploit [chimera]&lt;&#x2F;li&gt;
+&lt;li&gt;Chaosmaster&lt;&#x2F;li&gt;
+&lt;li&gt;Geert-Jan Kreileman (GUI, design &amp;amp; fixes)&lt;&#x2F;li&gt;
+&lt;li&gt;All contributors&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;bkerler&#x2F;mtkclient&quot;&gt;MTKClient&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Disable touchpad gestures</title>
+        <published>2023-10-13T15:22:57+05:30</published>
+        <updated>2023-10-13T15:22:57+05:30</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/disable-touchpad-corner-gestures/"/>
+        <id>https://coleaderme.github.io/disable-touchpad-corner-gestures/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/disable-touchpad-corner-gestures/">&lt;p&gt;Save this as &lt;strong&gt;gestures.reg&lt;&#x2F;strong&gt; make sure it is NOT &lt;strong&gt;.txt&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre&gt;&lt;code&gt;Windows Registry Editor Version 5.00
+[HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Right Edge Pull]
+&amp;quot;ActionType&amp;quot;=dword:00000000
+[HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Left Edge Pull]
+&amp;quot;ActionType&amp;quot;=dword:00000000
+[HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Right Edge Pull Extended Zone]
+&amp;quot;ActionType&amp;quot;=dword:00000000
+[HKEY_CURRENT_USER\Software\Synaptics\SynTPEnh\ZoneConfig\TouchPadPS2\Top Edge Pull]
+&amp;quot;ActionType&amp;quot;=dword:00000000
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Double click &lt;strong&gt;gestures.reg&lt;&#x2F;strong&gt; to apply.&lt;&#x2F;p&gt;
+&lt;p&gt;Note: Depending on device, sometimes TouchPadPS2 can be TouchPadPS2_1, TouchPadPS2_2 or similar.&lt;br &#x2F;&gt;
+replace with your specific.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;additionally&quot;&gt;Additionally:&lt;&#x2F;h3&gt;
+&lt;p&gt;Download skipMetroSuite from &lt;a href=&quot;https:&#x2F;&#x2F;winaero.com&#x2F;download-skip-metro-suite&#x2F;&quot;&gt;winaero&lt;&#x2F;a&gt;&lt;br &#x2F;&gt;
+mirror gdrive: &lt;a href=&quot;https:&#x2F;&#x2F;drive.google.com&#x2F;file&#x2F;d&#x2F;1N2Ne33yU1bQUqZZdt08ULpObLXd8kQR6&#x2F;view?usp=sharing&quot;&gt;skipMetroSuite&lt;&#x2F;a&gt;  &lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Audio Redirection speaker output to mic input | Pulseaudio</title>
+        <published>2023-10-13T14:26:26+05:30</published>
+        <updated>2023-10-13T14:26:26+05:30</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/pulseaudio/"/>
+        <id>https://coleaderme.github.io/pulseaudio/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/pulseaudio/">&lt;h1 id=&quot;pulseaudio-setup&quot;&gt;Pulseaudio setup&lt;&#x2F;h1&gt;
+&lt;h2 id=&quot;why&quot;&gt;Why?&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Easy Equalizer&lt;&#x2F;li&gt;
+&lt;li&gt;Easy Audio redirection&#x2F;piping speaker output to mic input.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Note: Alsa is all you need for basic media consuming, pulseaudio is required for points above^^.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;firefox audio doesn&#x27;t work with alsa, you will need to install &lt;strong&gt;apulse&lt;&#x2F;strong&gt; from AUR.&lt;br &#x2F;&gt;
+&lt;code&gt;$ yay -S apulse&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+&lt;code&gt;$ apulse firefox&lt;&#x2F;code&gt; &lt;em&gt;voila!&lt;&#x2F;em&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;installation&quot;&gt;Installation:&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;code&gt;$ sudo pacman -S pulseaudio pavucontrol pulseaudio-alsa pulseaudio-equalizer-ladspa pulseaudio-zeroconf pulsemixer&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;basic-audio-control&quot;&gt;Basic audio control:&lt;&#x2F;h2&gt;
+&lt;p&gt;toggle  mute: &lt;code&gt;$ amixer -q -D pulse sset Master toggle&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+decrease vol: &lt;code&gt;$ amixer -q -D pulse sset Master 1%+&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+increase vol: &lt;code&gt;$ amixer -q -D pulse sset Master 1%-&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;equalizer&quot;&gt;Equalizer:&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;open&lt;&#x2F;strong&gt; &lt;code&gt;pulseaudio-equalizer-gtk&lt;&#x2F;code&gt; which is installed by &lt;em&gt;pulseaudio-equalizer-ladspa&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;audio-redirection-piping&quot;&gt;Audio redirection&#x2F;piping:&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;code&gt;$ pavucontrol&lt;&#x2F;code&gt;&lt;br &#x2F;&gt;
+goto &lt;strong&gt;Recording&lt;&#x2F;strong&gt; tab, show: &lt;strong&gt;All Streams&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+select from there.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;.&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>YouTube Playlist Downloader Fast and Easy!</title>
+        <published>2023-10-02T00:00:00+00:00</published>
+        <updated>2023-10-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/youtube-playlist-dl/"/>
+        <id>https://coleaderme.github.io/youtube-playlist-dl/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/youtube-playlist-dl/">&lt;p&gt;&lt;code&gt;Colab&lt;&#x2F;code&gt;: &lt;a href=&quot;https:&#x2F;&#x2F;colab.research.google.com&#x2F;github&#x2F;coleaderme&#x2F;multi-yt&#x2F;blob&#x2F;main&#x2F;multiYT_download.ipynb&quot;&gt;https:&#x2F;&#x2F;colab.research.google.com&#x2F;github&#x2F;coleaderme&#x2F;multi-yt&#x2F;blob&#x2F;main&#x2F;multiYT_download.ipynb&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-to-use&quot;&gt;How to use:&lt;&#x2F;h2&gt;
+&lt;p&gt;Add your playlist &lt;strong&gt;LINK&lt;&#x2F;strong&gt;: &lt;em&gt;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=MIeJ-etE36o&amp;amp;list=PLnKtcw5mIGUR-aMBz9AphxHzEH7Kt-azY&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Select &lt;strong&gt;Download&lt;&#x2F;strong&gt; option:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Audio + Video&lt;&#x2F;code&gt;       : (Default limit 40mins)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Audio Only&lt;&#x2F;code&gt;          : (No limit)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Bypass 40 mins limit&lt;&#x2F;code&gt;: (No limit)&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Click on play &lt;strong&gt;(&amp;gt;)&lt;&#x2F;strong&gt; button to run.&lt;&#x2F;p&gt;
+&lt;p&gt;You will see warning, &lt;strong&gt;Run Anyway&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+Permission to attach Gdrive, &lt;strong&gt;Connent to Google Drive&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+Select &lt;em&gt;your account&lt;&#x2F;em&gt; &amp;gt;&amp;gt; &lt;strong&gt;Allow&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Download should start, after finishing, all files will be copied to &lt;strong&gt;Gdrive&lt;&#x2F;strong&gt;.&lt;br &#x2F;&gt;
+&lt;em&gt;Note: Download zip file from Gdrive before pasting another playlist. If not, colab will overwrite it!&lt;&#x2F;em&gt;  &lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Shortcodes</title>
+        <published>2022-10-20T00:00:00+00:00</published>
+        <updated>2022-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/shortcodes/"/>
+        <id>https://coleaderme.github.io/shortcodes/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/shortcodes/">&lt;p&gt;The Kita theme providers multiple shortcodes.&lt;&#x2F;p&gt;
+&lt;p&gt;Never heard of shortcodes? See &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;content&#x2F;shortcodes&#x2F;&quot;&gt;Zola documentation&lt;&#x2F;a&gt; for more information.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;mermaid&quot;&gt;Mermaid&lt;&#x2F;h2&gt;
+&lt;p&gt;To use Mermaid in your page, you have to set &lt;code&gt;extra.mermaid = true&lt;&#x2F;code&gt; in the frontmatter of page.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;+++
+title = &amp;quot;Your page title&amp;quot;
+
+[extra]
+mermaid = true
++++
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Then you can use the &lt;code&gt;mermaid()&lt;&#x2F;code&gt; shortcodes like:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;{% mermaid() %}
+
+graph TD;
+A--&amp;gt;B;
+A--&amp;gt;C;
+B--&amp;gt;D;
+C--&amp;gt;D;
+
+{% end %}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will be rendered as:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;mermaid bg-white&quot;&gt;
+  graph TD;
+A--&amp;gt;B;
+A--&amp;gt;C;
+B--&amp;gt;D;
+C--&amp;gt;D;
+&lt;&#x2F;pre&gt;
+&lt;p&gt;In addition, you can use code block inside &lt;code&gt;mermaid()&lt;&#x2F;code&gt; shortcodes and the code block will be ignored.&lt;&#x2F;p&gt;
+&lt;p&gt;The code block prevents formatter from breaking mermaid&#x27;s formatting.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;{% mermaid() %}
+
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&amp;gt;&amp;gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &amp;lt;br&amp;#x2F;&amp;gt;prevail!
+    John--&amp;gt;&amp;gt;Alice: Great!
+    John-&amp;gt;&amp;gt;Bob: How about you?
+    Bob--&amp;gt;&amp;gt;John: Jolly good!
+```
+
+{% end %}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;This will be rendered as:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;mermaid bg-white&quot;&gt;
+  
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+    loop Healthcheck
+        John-&amp;gt;&amp;gt;John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts &amp;lt;br&amp;#x2F;&amp;gt;prevail!
+    John--&amp;gt;&amp;gt;Alice: Great!
+    John-&amp;gt;&amp;gt;Bob: How about you?
+    Bob--&amp;gt;&amp;gt;John: Jolly good!
+
+&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;admonition&quot;&gt;Admonition&lt;&#x2F;h2&gt;
+&lt;p&gt;The &lt;code&gt;admonition()&lt;&#x2F;code&gt; shortcode displays a banner to help you put notice in your page.&lt;&#x2F;p&gt;
+&lt;p&gt;You can use the &lt;code&gt;admonition()&lt;&#x2F;code&gt; shortcode like:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;{% admonition(type=&amp;quot;tip&amp;quot;, title=&amp;quot;tip&amp;quot;) %}
+The `tip` admonition.
+{% end %}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The admonition shortcode has 12 different types:&lt;&#x2F;p&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(68, 138, 255, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;note.svg)&quot;
+    &gt;
+      note
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;note&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;note&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(0, 176, 255, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;abstract.svg)&quot;
+    &gt;
+      abstract
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;abstract&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;abstract&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(83, 211, 230, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;info.svg)&quot;
+    &gt;
+      info
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;info&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;info&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(0, 191, 165, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;tip.svg)&quot;
+    &gt;
+      tip
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;tip&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;tip&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(0, 200, 83, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;success.svg)&quot;
+    &gt;
+      success
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;success&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;success&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(100, 221, 23, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;question.svg)&quot;
+    &gt;
+      question
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;question&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;question&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(255, 145, 0, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;warning.svg)&quot;
+    &gt;
+      warning
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;warning&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;warning&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(255, 82, 82, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;failure.svg)&quot;
+    &gt;
+      failure
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;failure&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;failure&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(0, 176, 255, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;abstract.svg)&quot;
+    &gt;
+      abstract
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;danger&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;danger&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(255, 23, 68, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;bug.svg)&quot;
+    &gt;
+      bug
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;bug&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;bug&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(101, 31, 255, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;example.svg)&quot;
+    &gt;
+      example
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;example&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;example&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+ &lt;!----&gt;
+
+
+&lt;div
+  class=&quot;my-4 flex flex-col rounded-lg bg-[var(--admonition-bg)]&quot;
+  style=&quot;--admonition-bg: rgba(159, 159, 159, 0.1)&quot;
+&gt;
+  &lt;div class=&quot;flex items-center rounded-t-lg bg-[var(--admonition-bg)] p-1&quot;&gt;
+    &lt;div
+      class=&quot;mx-2 h-4 w-4 text-[0] [background:var(--url)_center_center_no-repeat] dark:invert&quot;
+      style=&quot;--url: url(.&#x2F;icons&#x2F;quote.svg)&quot;
+    &gt;
+      quote
+    &lt;&#x2F;div&gt;
+    &lt;span&gt;&lt;strong&gt;quote&lt;&#x2F;strong&gt;&lt;&#x2F;span&gt;
+  &lt;&#x2F;div&gt;
+  &lt;div class=&quot;pl-4&quot;&gt;&lt;p&gt;The &lt;code&gt;quote&lt;&#x2F;code&gt; admonition.&lt;&#x2F;p&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;h2 id=&quot;gallery&quot;&gt;Gallery&lt;&#x2F;h2&gt;
+&lt;p&gt;The &lt;code&gt;admonition()&lt;&#x2F;code&gt; shortcode is very simple html-only clickable picture gallery that displays all images from the page assets.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s from &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;content&#x2F;image-processing&#x2F;&quot;&gt;Zola documentation&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;{{ gallery() }}
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;div class=&quot;not-prose flex flex-wrap gap-2&quot;&gt;
+  
+&lt;&#x2F;div&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Theme Config Guide</title>
+        <published>2022-10-20T00:00:00+00:00</published>
+        <updated>2022-10-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/theme-config/"/>
+        <id>https://coleaderme.github.io/theme-config/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/theme-config/">&lt;p&gt;You can customize Kita theme by editing &lt;code&gt;config.toml&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Here are all the kita theme options:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;toml&quot; class=&quot;language-toml &quot;&gt;&lt;code class=&quot;language-toml&quot; data-lang=&quot;toml&quot;&gt;# The Kita theme style config.
+[extra]
+# Enable KaTex math formula support globally.
+math = false
+# Enable mermaid support globally.
+mermaid = false
+# Enable comment support globally.
+comment = false
+
+[extra.style]
+# The custom background color.
+# bg_color = &amp;quot;&amp;quot;
+
+# The custom background color in dark mode.
+# bg_dark_color = &amp;quot;&amp;quot;
+
+# Enable header blur.
+# header_blur = true
+
+# The custom header color, only available when `header_blur` is false.
+# header_color = &amp;quot;&amp;quot;
+
+# The custom header color in dark mode, only available when `header_blur` is false.
+# header_dark_color = &amp;quot;&amp;quot;
+
+# The profile on home page.
+[extra.profile]
+name = &amp;quot;Kita - Zola Theme&amp;quot;
+bio = &amp;quot;Kita is a clean, elegant and simple blog theme for Zola.&amp;quot;
+# The URL of avatar.
+avatar_url = &amp;quot;icons&amp;#x2F;github.svg&amp;quot;
+# Invert color in dark mode.
+avatar_invert = true
+
+# The social icons below the profile on the home page.
+[[extra.profile.social]]
+name = &amp;quot;github&amp;quot;
+url = &amp;quot;https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;st1020&amp;#x2F;kita&amp;quot;
+
+[[extra.profile.social]]
+name = &amp;quot;twitter&amp;quot;
+url = &amp;quot;https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;st1020&amp;#x2F;kita&amp;quot;
+
+[[extra.profile.social]]
+name = &amp;quot;rss&amp;quot;
+url = &amp;quot;$BASE_URL&amp;#x2F;atom.xml&amp;quot;
+
+# The top menu.
+[[extra.menu]]
+name = &amp;quot;Projects&amp;quot;
+url = &amp;quot;$BASE_URL&amp;#x2F;projects&amp;quot;
+
+[[extra.menu]]
+name = &amp;quot;Archive&amp;quot;
+url = &amp;quot;$BASE_URL&amp;#x2F;archive&amp;quot;
+
+[[extra.menu]]
+name = &amp;quot;Tags&amp;quot;
+url = &amp;quot;$BASE_URL&amp;#x2F;tags&amp;quot;
+
+[[extra.menu]]
+name = &amp;quot;About&amp;quot;
+url = &amp;quot;$BASE_URL&amp;#x2F;about&amp;quot;
+
+# The page footer options.
+[extra.footer]
+since = 2020
+license = &amp;quot;CC BY-SA 4.0&amp;quot;
+license_url = &amp;quot;https:&amp;#x2F;&amp;#x2F;creativecommons.org&amp;#x2F;licenses&amp;#x2F;by-sa&amp;#x2F;4.0&amp;#x2F;deed&amp;quot;
+
+# The giscus comment options, only available when comment is enabled.
+[extra.giscus]
+repo = &amp;quot;&amp;quot;
+repo_id = &amp;quot;&amp;quot;
+category = &amp;quot;&amp;quot;
+category_id = &amp;quot;&amp;quot;
+mapping = &amp;quot;pathname&amp;quot;
+strict = 1
+reactions_enabled = 0
+emit_metadata = 0
+input_position = &amp;quot;top&amp;quot;
+theme = &amp;quot;light&amp;quot;
+lang = &amp;quot;en&amp;quot;
+loading = &amp;quot;lazy&amp;quot;
+&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Emoji Support</title>
+        <published>2019-03-05T00:00:00+00:00</published>
+        <updated>2019-03-05T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              coleaderme
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://coleaderme.github.io/emoji-support/"/>
+        <id>https://coleaderme.github.io/emoji-support/</id>
+        
+        <content type="html" xml:base="https://coleaderme.github.io/emoji-support/">&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;&#x2F;p&gt;
+&lt;!--more--&gt;
+&lt;p&gt;The &lt;a href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;functions&#x2F;emojify&#x2F;&quot;&gt;&lt;code&gt;emojify&lt;&#x2F;code&gt;&lt;&#x2F;a&gt; function can be called directly in templates or &lt;a href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;templates&#x2F;shortcode-templates&#x2F;#inline-shortcodes&quot;&gt;Inline Shortcodes&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To enable emoji globally, set &lt;code&gt;enableEmoji&lt;&#x2F;code&gt; to &lt;code&gt;true&lt;&#x2F;code&gt; in your site&#x27;s &lt;a href=&quot;https:&#x2F;&#x2F;gohugo.io&#x2F;getting-started&#x2F;configuration&#x2F;&quot;&gt;configuration&lt;&#x2F;a&gt; and then you can type emoji shorthand codes directly in content files; e.g.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;span class=&quot;nowrap&quot;&gt;&lt;span class=&quot;emojify&quot;&gt;🙈&lt;&#x2F;span&gt; &lt;code&gt;:see_no_evil:&lt;&#x2F;code&gt;&lt;&#x2F;span&gt;  &lt;span class=&quot;nowrap&quot;&gt;&lt;span class=&quot;emojify&quot;&gt;🙉&lt;&#x2F;span&gt; &lt;code&gt;:hear_no_evil:&lt;&#x2F;code&gt;&lt;&#x2F;span&gt;  &lt;span class=&quot;nowrap&quot;&gt;&lt;span class=&quot;emojify&quot;&gt;🙊&lt;&#x2F;span&gt; &lt;code&gt;:speak_no_evil:&lt;&#x2F;code&gt;&lt;&#x2F;span&gt;&lt;&#x2F;p&gt;
+&lt;br&gt;
+&lt;p&gt;The &lt;a href=&quot;http:&#x2F;&#x2F;www.emoji-cheat-sheet.com&#x2F;&quot;&gt;Emoji cheat sheet&lt;&#x2F;a&gt; is a useful reference for emoji shorthand codes.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;p&gt;&lt;strong&gt;N.B.&lt;&#x2F;strong&gt; The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.&lt;&#x2F;p&gt;
+&lt;p&gt;{{&amp;lt; highlight html &amp;gt;}}
+.emoji {
+font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+}
+{{&amp;lt; &#x2F;highlight &amp;gt;}}&lt;&#x2F;p&gt;
+&lt;p&gt;{{&amp;lt; css.inline &amp;gt;}}&lt;&#x2F;p&gt;
+&lt;style&gt;
+.emojify {
+	font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+	font-size: 2rem;
+	vertical-align: middle;
+}
+@media screen and (max-width:650px) {
+  .nowrap {
+    display: block;
+    margin: 25px 0;
+  }
+}
+&lt;&#x2F;style&gt;
+&lt;p&gt;{{&amp;lt; &#x2F;css.inline &amp;gt;}}&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
